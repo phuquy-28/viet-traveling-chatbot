@@ -123,6 +123,12 @@ viet-traveling-chatbot/
 │   │   └── english/       # English content
 │   └── mock_links.json    # External links database
 ├── src/                   # Source code
+│   ├── ui/                # UI Components (modular)
+│   │   ├── styles.py      # CSS styling
+│   │   ├── sidebar.py     # Sidebar components
+│   │   ├── messages.py    # Message display + TTS
+│   │   ├── welcome.py     # Welcome screen
+│   │   └── session_manager.py  # Session management
 │   ├── vector_store.py    # Pinecone operations
 │   ├── llm_chain.py       # Langchain setup
 │   ├── function_calls.py  # Function calling handlers

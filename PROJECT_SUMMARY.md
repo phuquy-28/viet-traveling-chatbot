@@ -11,12 +11,14 @@ A complete RAG (Retrieval-Augmented Generation) chatbot implementation for Vietn
 ## 📊 Implementation Statistics
 
 ### Code Metrics
-- **Total Files:** 25
-- **Python Modules:** 8 (src/)
+- **Total Files:** 31
+- **Python Modules:** 14 (src/ + src/ui/)
+- **UI Modules:** 6 (modular architecture)
 - **Scripts:** 2 (app.py, ingest_data.py)
 - **Data Files:** 7 (6 content + 1 JSON)
-- **Documentation:** 8 files
-- **Lines of Code:** ~2,200+
+- **Documentation:** 9 files
+- **Lines of Code:** ~2,300+ (modular structure)
+- **app.py:** 235 lines (reduced 66% from 693)
 - **Test Cases:** 30+ documented scenarios
 
 ### Time to Complete
@@ -93,11 +95,17 @@ A complete RAG (Retrieval-Augmented Generation) chatbot implementation for Vietn
 ```
 viet-traveling-chatbot/
 ├── 📄 Core Application
-│   ├── app.py                    # Main Streamlit app (350+ lines)
+│   ├── app.py                    # Main Streamlit app (235 lines - refactored!)
 │   ├── ingest_data.py           # Data ingestion script (150+ lines)
 │   └── requirements.txt         # 14 dependencies
 │
 ├── 🔧 Source Modules (src/)
+│   ├── ui/                      # UI Components Package
+│   │   ├── styles.py            # CSS styling (135 lines)
+│   │   ├── sidebar.py           # Sidebar components (155 lines)
+│   │   ├── messages.py          # Message display + TTS (120 lines)
+│   │   ├── welcome.py           # Welcome screen (65 lines)
+│   │   └── session_manager.py   # Session management (95 lines)
 │   ├── vector_store.py          # Pinecone operations (200+ lines)
 │   ├── llm_chain.py             # LLM + RAG + Function Calling (250+ lines)
 │   ├── function_calls.py        # External links handler (150+ lines)
@@ -332,12 +340,15 @@ Pass Criteria: ✅ Function called, links displayed
 5. **Singleton Pattern:** Cached resources in Streamlit
 
 ### Code Statistics (Latest)
-- Total Python files: 10 (8 modules + 1 backup + 1 script)
+- Total Python files: 16 (14 modules + 1 backup + 1 script)
+- UI Modules: 6 files in modular src/ui/ package
 - Data files: 7 (6 content + 1 JSON)
-- Documentation files: 8 (6 memory-bank + README + TEST_CASES)
-- Lines of code: ~2,200+
+- Documentation files: 9 (6 memory-bank + 3 guides + REFACTOR_SUMMARY)
+- Lines of code: ~2,300+ (modular architecture)
+- app.py: 235 lines (66% reduction from original 693 lines)
 - TTS implementation: gTTS (Google Text-to-Speech) - stable and tested
 - Storage: File-based persistent chat history (JSON)
+- Architecture: Clean separation of UI and business logic
 
 ### Code Quality
 - **Readability:** Clear naming, logical structure

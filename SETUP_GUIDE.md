@@ -280,6 +280,13 @@ viet-traveling-chatbot/
 │
 ├── src/                     # Source code modules
 │   ├── __init__.py
+│   ├── ui/                  # UI Components (modular)
+│   │   ├── __init__.py
+│   │   ├── styles.py        # CSS styling
+│   │   ├── sidebar.py       # Sidebar components
+│   │   ├── messages.py      # Message display + TTS
+│   │   ├── welcome.py       # Welcome screen
+│   │   └── session_manager.py  # Session management
 │   ├── vector_store.py      # Pinecone operations
 │   ├── llm_chain.py         # Langchain + Azure OpenAI
 │   ├── function_calls.py    # Function calling logic

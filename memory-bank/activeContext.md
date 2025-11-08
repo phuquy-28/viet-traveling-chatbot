@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Status
-**Project Implementation Complete + Persistent Chat Storage** ✅
+**Project Implementation Complete + Code Refactoring** ✅
 
 All development tasks completed! The Vietnam Travel Advisory Chatbot is fully implemented with:
 - Complete RAG pipeline with Pinecone and Azure OpenAI
@@ -10,7 +10,8 @@ All development tasks completed! The Vietnam Travel Advisory Chatbot is fully im
 - Text-to-Speech integration (gTTS - Google TTS)
 - Modern ChatGPT-style UI with light/dark mode
 - Bilingual interface (EN/VI)
-- **NEW: Persistent chat history (file-based storage)**
+- Persistent chat history (file-based storage)
+- **NEW: Modular UI architecture (src/ui/ package)**
 - Chat history and session management with auto-save
 - Audio stop controls
 - Comprehensive mock data
@@ -28,21 +29,30 @@ The application is production-ready with enhanced UI:
 
 ## Recent Changes
 
-### Persistent Chat Storage (Current Session) ✅
+### Code Refactoring - Modular Architecture (Current Session) ✅
+1. ✅ **Major Refactor**: app.py từ 693 dòng → 235 dòng (giảm 66%)
+2. ✅ **UI Package**: Created `src/ui/` với 6 modules chuyên biệt
+3. ✅ **Separation of Concerns**: UI logic tách riêng khỏi business logic
+4. ✅ **Improved Maintainability**: Mỗi module < 200 dòng, dễ đọc và maintain
+5. ✅ **Clean Architecture**: Functions có single responsibility, dễ test
+
+**New UI Modules:**
+- `src/ui/styles.py` - CSS styling (135 lines)
+- `src/ui/sidebar.py` - Sidebar components (155 lines)
+- `src/ui/messages.py` - Message display + TTS (120 lines)
+- `src/ui/welcome.py` - Welcome screen (65 lines)
+- `src/ui/session_manager.py` - Session management (95 lines)
+- `src/ui/__init__.py` - Package exports
+
+**Documentation:**
+- `REFACTOR_SUMMARY.md` - Chi tiết refactoring process
+
+### Persistent Chat Storage (Previous Session) ✅
 1. ✅ **File-Based Storage**: Chat sessions now saved to disk in JSON format
 2. ✅ **New Module**: Created `src/chat_storage.py` with ChatStorageManager class
 3. ✅ **Auto-Save**: Sessions automatically saved after each message
 4. ✅ **Persistence**: Chat history survives app restarts and browser refreshes
 5. ✅ **Storage Directory**: `chat_history/` folder with automatic .gitignore
-6. ✅ **Updated .gitignore**: Added `chat_history/` to prevent committing user data
-
-**Files Modified:**
-- `src/chat_storage.py` - NEW module for persistent storage
-- `app.py` - Integrated ChatStorageManager
-- `.gitignore` - Added chat_history/ exclusion
-- `README.md` - Updated features list
-- `memory-bank/activeContext.md` - This file
-- `memory-bank/progress.md` - Updated completion status
 
 ### UI Overhaul - ChatGPT-Style Interface (Previous Session) ✅
 1. ✅ **Light & Dark Mode**: Full theme switching with CSS variables
