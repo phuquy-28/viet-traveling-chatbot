@@ -7,37 +7,53 @@ def display_welcome_screen():
     """Display welcome screen with example questions in main area"""
     ui_lang = st.session_state.get("ui_lang", "en")
     
-    # Title
+    # Title - using native Streamlit components only
     if ui_lang == "en":
-        st.markdown("# 🇻🇳 Welcome to Vietnam Travel Chatbot")
-        st.markdown("### Your AI-powered Vietnamese travel assistant")
+        st.title("🇻🇳 Welcome to Vietnam Travel Chatbot")
+        st.subheader("Your AI-powered Vietnamese travel assistant")
     else:
-        st.markdown("# 🇻🇳 Chào mừng đến với Vietnam Travel Chatbot")
-        st.markdown("### Trợ lý du lịch Việt Nam được hỗ trợ bởi AI")
+        st.title("🇻🇳 Chào mừng đến với Vietnam Travel Chatbot")
+        st.subheader("Trợ lý du lịch Việt Nam được hỗ trợ bởi AI")
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.divider()
     
-    # Example questions in grid
+    # Example questions in grid - using native Streamlit components
     examples = _get_example_questions(ui_lang)
     
-    # Display examples in 2x2 grid
-    col1, col2 = st.columns(2)
+    # Display examples in 2x2 grid with styled cards
+    col1, col2 = st.columns(2, gap="medium")
     
     for i, example in enumerate(examples):
         col = col1 if i % 2 == 0 else col2
         
         with col:
-            card_html = f"""
-            <div class="example-card">
-                <div class="example-title">{example['icon']} {example['title']}</div>
-                <div class="example-text">{example['text']}</div>
-            </div>
-            """
-            st.markdown(card_html, unsafe_allow_html=True)
+            # Card with tag and subtext (info only, not clickable)
+            st.markdown(
+                f"""
+                <div style='padding: 16px; background-color: #f7f7f8; border-radius: 12px; border: 1px solid #e5e5e5; margin-bottom: 12px;'>
+                    <div style='font-size: 16px; font-weight: 600; color: #1f1f1f; margin-bottom: 8px;'>
+                        {example['icon']} {example['title']}
+                    </div>
+                    <div style='font-size: 14px; color: #666; line-height: 1.4;'>
+                        {example['text']}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
             
-            if st.button(example['text'], key=f"example_{i}", use_container_width=True):
+            # Action button below card - native Streamlit (secondary type for neutral colors)
+            if st.button(
+                example['text'],
+                key=f"example_{i}",
+                use_container_width=True,
+                type="secondary"
+            ):
                 st.session_state.current_input = example['text']
                 st.rerun()
+            
+            # Spacing between card groups
+            st.markdown("<div style='margin-bottom: 24px;'></div>", unsafe_allow_html=True)
 
 
 def _get_example_questions(ui_lang: str) -> list:
