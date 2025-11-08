@@ -7,7 +7,7 @@ All development tasks completed! The Vietnam Travel Advisory Chatbot is fully im
 - Complete RAG pipeline with Pinecone and Azure OpenAI
 - Function Calling for external links
 - Bilingual support (Vietnamese + English)
-- Text-to-Speech integration
+- Text-to-Speech integration (gTTS - Google TTS)
 - Streamlit UI with all features
 - Comprehensive mock data
 - Full test case documentation
@@ -23,7 +23,15 @@ The application is production-ready and awaiting:
 
 ## Recent Changes
 
-### Complete Implementation (This Session)
+### TTS Implementation Fix (Latest Session)
+1. ✅ **Fixed TTS Issues**: Resolved 401 and 404 errors with Hugging Face API
+2. ✅ **Migrated to gTTS**: Switched from Hugging Face to Google Text-to-Speech
+3. ✅ **Benefits**: No API key required, more stable, simpler integration
+4. ✅ **Updated dependencies**: Added gtts==2.5.1 to requirements.txt
+5. ✅ **Backup created**: Saved Hugging Face implementation as tts_huggingface_backup.py
+6. ✅ **Tested successfully**: Both Vietnamese and English TTS working
+
+### Complete Implementation (Previous Sessions)
 1. ✅ Created comprehensive memory bank (6 documents)
 2. ✅ Set up complete project structure
 3. ✅ Created bilingual mock data (Vi + En)
@@ -37,7 +45,7 @@ The application is production-ready and awaiting:
 - **RAG Pipeline:** Pinecone + Azure OpenAI fully integrated
 - **Function Calling:** get_external_links() with 60+ curated links
 - **Bilingual:** Auto-detection with matching responses
-- **TTS:** Hugging Face integration for both languages
+- **TTS:** Google TTS (gTTS) integration for both languages - stable and working
 - **UI:** Complete Streamlit interface with all FR7 components
 - **Documentation:** 12 comprehensive documents
 - **Testing:** Full test case coverage (FR1-FR7, NFR1-NFR4)
@@ -99,8 +107,12 @@ Priority order:
 **Rationale**: Balance between context awareness and token usage.
 
 ### TTS Implementation
-**Decision**: Use Hugging Face Inference API (not local models).
-**Rationale**: Simpler deployment, no model download required, supports both languages.
+**Decision**: Use Google Text-to-Speech (gTTS) instead of Hugging Face.
+**Rationale**: 
+- Hugging Face Inference API endpoints were deprecated/unavailable (404 errors)
+- gTTS requires no API key, is more stable, and simpler to integrate
+- Supports both Vietnamese and English with high-quality voices
+- Free service with no rate limits (within reasonable usage)
 
 ## Open Questions
 
@@ -117,7 +129,8 @@ Priority order:
 ### Q3: TTS Model Selection
 - **Question**: Which specific Hugging Face model for Vietnamese TTS?
 - **Options**: facebook/mms-tts-vie, vinai/vietnamese-tts
-- **Decision Needed**: During tts.py implementation
+- **Decision**: RESOLVED - Switched to gTTS (Google TTS) due to Hugging Face API issues
+- **Status**: ✅ Implemented and tested successfully
 
 ## Blockers & Dependencies
 
@@ -125,7 +138,7 @@ Priority order:
 Need to obtain/configure:
 - ✅ Azure OpenAI credentials (assumed available)
 - ✅ Pinecone API key (assumed available)
-- ⚠️ Hugging Face API key (need to verify)
+- ✅ TTS: No API key needed (using gTTS - free Google service)
 
 ### Environment Setup
 - Python 3.9+ required

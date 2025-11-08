@@ -118,11 +118,10 @@ def display_settings():
         else:
             st.error("❌ Configuration issues detected")
         
-        tts_ok = validation.get("HUGGINGFACE_API_KEY", False)
+        # TTS is always available with gTTS (no API key needed)
+        tts_ok = tts_manager.is_available() if 'tts_manager' in st.session_state else True
         if tts_ok:
-            st.info("🔊 TTS enabled")
-        else:
-            st.warning("🔇 TTS disabled (no API key)")
+            st.info("🔊 TTS enabled (Google TTS)")
 
 
 def display_message(role: str, content: str, show_tts: bool = False, 

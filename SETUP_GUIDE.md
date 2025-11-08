@@ -7,7 +7,6 @@
 - API Keys:
   - **Azure OpenAI** (required)
   - **Pinecone** (required)
-  - **Hugging Face** (optional, for TTS)
 
 ---
 
@@ -60,11 +59,7 @@ pip install -r requirements.txt
 
    # Pinecone Configuration
    PINECONE_API_KEY=your_actual_pinecone_key_here
-   PINECONE_ENVIRONMENT=us-east-1-aws
    PINECONE_INDEX_NAME=vietnam-travel
-
-   # Hugging Face (Optional - for TTS)
-   HUGGINGFACE_API_KEY=your_actual_hf_key_here
    ```
 
 ### Where to Get API Keys:
@@ -82,11 +77,7 @@ pip install -r requirements.txt
 - Copy your API key
 - Note your environment (e.g., `us-east-1-aws`)
 
-**Hugging Face (Optional):**
-- Go to [Hugging Face](https://huggingface.co/)
-- Create account and login
-- Go to Settings → Access Tokens
-- Create a new token with read access
+**Note:** Text-to-Speech uses Google TTS (gTTS) which does NOT require an API key. It's free and works automatically once gTTS is installed.
 
 ---
 
@@ -205,10 +196,10 @@ pip install -r requirements.txt
 
 ### Issue: TTS not working
 **Solution:**
-- TTS is optional - app works without it
-- Verify `HUGGINGFACE_API_KEY` is set
-- Check internet connection
-- First TTS call may be slow (model loading)
+- TTS uses Google TTS (gTTS) - no API key needed
+- Verify gTTS is installed: `pip install gtts`
+- Check internet connection (gTTS requires internet)
+- First TTS call may take a few seconds
 
 ### Issue: Slow responses
 **Solution:**

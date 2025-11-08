@@ -37,7 +37,7 @@ A complete RAG (Retrieval-Augmented Generation) chatbot implementation for Vietn
 | FR3 | Recommendations | ✅ | LLM generates context-based suggestions |
 | FR4 | External Links | ✅ | Function Calling with mock_links.json |
 | FR5 | Conversation History | ✅ | Session state + follow-up suggestions |
-| FR6 | Text-to-Speech | ✅ | Hugging Face API (Vi + En) |
+| FR6 | Text-to-Speech | ✅ | Google TTS (gTTS) - Vi + En |
 | FR7 | User Interface | ✅ | Streamlit with all required components |
 
 ### Non-Functional Requirements (100%)
@@ -47,14 +47,14 @@ A complete RAG (Retrieval-Augmented Generation) chatbot implementation for Vietn
 | NFR1 | Performance < 5s | ✅ | Expected 3-5s response time |
 | NFR2 | Usability | ✅ | Clean, intuitive Streamlit UI |
 | NFR3 | Reliability | ✅ | RAG-based, grounded responses |
-| NFR4 | Voice Quality | ✅ | Hugging Face TTS (natural voices) |
+| NFR4 | Voice Quality | ✅ | Google TTS (gTTS) - natural voices |
 
 ### Workshop Requirements (100%)
 
 - ✅ Pinecone vector store (required)
 - ✅ Langchain orchestration (required)
 - ✅ Streamlit UI (required)
-- ✅ Hugging Face integration (required)
+- ✅ Google TTS (gTTS) integration
 - ✅ Function Calling (required)
 - ✅ Synthetic datasets (required)
 - ✅ RAG implementation (required)
@@ -80,9 +80,9 @@ A complete RAG (Retrieval-Augmented Generation) chatbot implementation for Vietn
         ┌───────────────┼────────────────┬────────────┐
         ▼               ▼                ▼            ▼
    ┌─────────┐   ┌──────────┐   ┌──────────┐  ┌──────────┐
-   │Pinecone │   │  Azure   │   │ Hugging  │  │ Mock     │
-   │ Vector  │   │  OpenAI  │   │ Face TTS │  │ Links    │
-   │ Store   │   │          │   │          │  │ JSON     │
+   │Pinecone │   │  Azure   │   │  Google  │  │ Mock     │
+   │ Vector  │   │  OpenAI  │   │  TTS     │  │ Links    │
+   │ Store   │   │          │   │  (gTTS)  │  │ JSON     │
    └─────────┘   └──────────┘   └──────────┘  └──────────┘
 ```
 
@@ -148,7 +148,7 @@ viet-traveling-chatbot/
 - **Matching:** Response language matches query language
 - **Data:** Separate Vietnamese and English datasets
 - **Embeddings:** Bilingual semantic search
-- **TTS:** Language-specific models (mms-tts-vie, mms-tts-eng)
+- **TTS:** Google TTS (gTTS) for Vietnamese and English
 
 ### 4. Conversation Management ✅
 - **History Storage:** Session state with ConversationManager
@@ -158,12 +158,11 @@ viet-traveling-chatbot/
 - **Clear Function:** Reset conversation at any time
 
 ### 5. Text-to-Speech ✅
-- **Provider:** Hugging Face Inference API
-- **Models:** facebook/mms-tts (multilingual)
-- **Languages:** Vietnamese (vie) and English (eng)
+- **Provider:** Google Text-to-Speech (gTTS)
+- **Languages:** Vietnamese (vi) and English (en)
 - **Integration:** 🔊 button next to each bot message
 - **Playback:** Auto-play audio in browser
-- **Graceful Degradation:** Works without API key
+- **No API Key Required:** Free service, works automatically
 
 ### 6. Streamlit UI ✅
 - **Layout:** Clean chat interface with sidebar
@@ -278,7 +277,7 @@ Pass Criteria: ✅ Function called, links displayed
 
 ### Dependencies
 - **Critical:** Azure OpenAI, Pinecone
-- **Optional:** Hugging Face (TTS only)
+- **TTS:** Google TTS (gTTS) - No API key required
 - **Infrastructure:** Python 3.9+, 2GB RAM min
 - **Network:** Internet connection required
 
@@ -343,7 +342,7 @@ Pass Criteria: ✅ Function called, links displayed
 - [x] Pinecone (vector store)
 - [x] Langchain (orchestration)
 - [x] Streamlit (UI framework)
-- [x] Hugging Face (TTS)
+- [x] Google TTS (gTTS)
 - [x] Azure OpenAI (LLM + embeddings)
 
 ### Required Features ✅

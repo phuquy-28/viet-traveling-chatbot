@@ -8,7 +8,7 @@
 - **Pinecone**: Vector database for semantic search
 - **Streamlit**: Web UI framework
 - **Azure OpenAI**: LLM and embeddings
-- **Hugging Face**: Text-to-Speech API
+- **gTTS (Google Text-to-Speech)**: Text-to-Speech API
 
 ### Key Dependencies
 
@@ -19,8 +19,9 @@ langchain-pinecone>=0.0.1
 pinecone>=3.0.0
 streamlit>=1.30.0
 openai>=1.0.0
-python-dotenv>=1.0.0
+python-dotenv>=1.0.1
 requests>=2.31.0
+gtts==2.5.1
 ```
 
 ## Development Setup
@@ -40,8 +41,8 @@ PINECONE_API_KEY=your_key
 PINECONE_ENVIRONMENT=your_env  # e.g., us-east-1-aws
 PINECONE_INDEX_NAME=vietnam-travel
 
-# Hugging Face (for TTS)
-HUGGINGFACE_API_KEY=your_key
+# Hugging Face (for TTS) - NO LONGER NEEDED
+# HUGGINGFACE_API_KEY=your_key  # Optional, not required
 ```
 
 ### Project Structure
@@ -103,11 +104,12 @@ viet-traveling-chatbot/
 - **Caching**: Use @st.cache_resource for clients
 - **Audio**: Use st.audio() for TTS playback
 
-### Hugging Face TTS
-- **Model**: facebook/mms-tts or similar
-- **Languages**: Vietnamese (vie), English (eng)
-- **Format**: WAV or MP3 audio output
-- **API**: Inference API with API key
+### gTTS (Google Text-to-Speech)
+- **Service**: Google Text-to-Speech API
+- **Languages**: Vietnamese (vi), English (en)
+- **Format**: MP3 audio output
+- **API Key**: NOT REQUIRED (free service)
+- **Advantages**: No API key needed, stable, high quality voices
 
 ## Integration Points
 
@@ -142,16 +144,18 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 ```
 
-### 4. Hugging Face TTS Integration
+### 4. gTTS Integration
 ```python
-import requests
+from gtts import gTTS
+import io
 
-API_URL = "https://api-inference.huggingface.co/models/facebook/mms-tts-vie"
-headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
-
-def text_to_speech(text):
-    response = requests.post(API_URL, headers=headers, json={"inputs": text})
-    return response.content  # audio bytes
+def text_to_speech(text, language="en"):
+    lang_code = "vi" if language == "vietnamese" else "en"
+    tts = gTTS(text=text, lang=lang_code, slow=False)
+    audio_buffer = io.BytesIO()
+    tts.write_to_fp(audio_buffer)
+    audio_buffer.seek(0)
+    return audio_buffer.read()  # audio bytes
 ```
 
 ## Performance Considerations
@@ -167,7 +171,7 @@ def text_to_speech(text):
 - Pinecone query: ~200-500ms
 - Azure OpenAI completion: 2-4 seconds
 - Function call overhead: +1 second
-- TTS generation: 1-3 seconds
+- TTS generation: 1-3 seconds (gTTS, no model loading)
 - **Total**: < 5 seconds (NFR1)
 
 ## Security Considerations

@@ -29,14 +29,14 @@
 - [x] Implement llm_chain.py (Langchain + Azure OpenAI)
 - [x] Implement function_calls.py (get_external_links function)
 - [x] Implement conversation.py (chat history management)
-- [x] Implement tts.py (Hugging Face TTS)
+- [x] Implement tts.py (Google TTS - gTTS)
 - [x] Implement utils.py (helper functions)
 
 ### UI Implementation
 - [x] Implement app.py (Streamlit main application)
 - [x] Create chat interface with message history
 - [x] Add input box for user queries
-- [x] Add TTS play buttons
+- [x] Add TTS play buttons (working with gTTS)
 - [x] Add follow-up question buttons
 - [x] Display external links clearly
 
@@ -51,7 +51,8 @@ None - All development tasks completed!
 ## 📋 To Do
 
 ### User Actions Required
-- [ ] Configure .env file with API keys (Azure OpenAI, Pinecone, Hugging Face)
+- [ ] Configure .env file with API keys (Azure OpenAI, Pinecone)
+- [ ] Note: Hugging Face API key NOT needed (using gTTS instead)
 - [ ] Run data ingestion: `python ingest_data.py`
 - [ ] Install dependencies: `pip install -r requirements.txt`
 - [ ] Launch application: `streamlit run app.py`
@@ -66,7 +67,16 @@ None - All development tasks completed!
 - [ ] Verify all NFRs (performance, usability, reliability)
 
 ## Known Issues
-None - Fresh implementation, pending initial testing
+
+### Resolved Issues
+- ✅ **TTS 401/404 Errors**: Fixed by migrating from Hugging Face to gTTS
+  - **Problem**: Hugging Face Inference API endpoints returned 404 (not found) or 410 (deprecated)
+  - **Solution**: Switched to Google Text-to-Speech (gTTS)
+  - **Status**: Resolved and tested successfully
+  - **Date**: Latest session
+
+### Current Status
+No known issues - All features working, ready for user testing
 
 ## Metrics
 
@@ -76,16 +86,17 @@ None - Fresh implementation, pending initial testing
 - FR3 (Recommendations): 100% - LLM generates recommendations from context
 - FR4 (Link Integration): 100% - Function Calling with mock_links.json
 - FR5 (Conversation Management): 100% - History + follow-up suggestions
-- FR6 (TTS): 100% - Hugging Face integration for Vi/En
+- FR6 (TTS): 100% - Google TTS (gTTS) integration for Vi/En - Working and tested
 - FR7 (UI): 100% - Streamlit interface with all components
 
 ### Overall Progress: 100% (All development completed)
 
 ### Code Statistics
-- Total Python files: 8 (7 modules + 2 scripts)
+- Total Python files: 9 (7 modules + 1 backup + 1 script)
 - Data files: 7 (6 content + 1 JSON)
 - Documentation files: 8 (6 memory-bank + README + TEST_CASES)
 - Lines of code: ~2,000+
+- TTS implementation: gTTS (Google Text-to-Speech) - stable and tested
 
 ## Workshop Deliverables Status
 - [x] SRS Document (provided by user) ✅
@@ -113,7 +124,7 @@ None - Fresh implementation, pending initial testing
 4. **Multilingual**: Auto language detection and matching
 5. **Conversation**: History tracking with context window
 6. **Follow-ups**: LLM-generated suggestions
-7. **TTS**: Audio playback for both languages
+7. **TTS**: Audio playback for both languages (gTTS - Google TTS)
 8. **UI**: Clean Streamlit interface with sidebar
 
 ### Data Coverage
@@ -158,7 +169,7 @@ None - Fresh implementation, pending initial testing
 ✅ RAG pipeline operational  
 ✅ Function Calling integrated  
 ✅ Bilingual support working  
-✅ TTS capability included  
+✅ TTS capability included and working (gTTS)  
 ✅ Streamlit UI complete  
 ✅ Mock data created (Vi + En)  
 ✅ Test cases documented  

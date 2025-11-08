@@ -72,7 +72,8 @@ An AI-powered travel chatbot that combines:
 ### FR6: Text-to-Speech
 - Play button next to each bot response
 - Natural voice in appropriate language
-- Hugging Face TTS integration
+- Google TTS (gTTS) integration
+- No API key required, free and stable
 
 ### FR7: Streamlit UI
 - Clean chat interface

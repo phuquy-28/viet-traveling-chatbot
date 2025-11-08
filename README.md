@@ -8,7 +8,7 @@ An intelligent RAG (Retrieval-Augmented Generation) chatbot for Vietnamese trave
 - **RAG Architecture**: Retrieves accurate information from curated knowledge base
 - **Function Calling**: Dynamically fetches external links (maps, reviews, videos)
 - **Conversational AI**: Maintains context and suggests follow-up questions
-- **Text-to-Speech**: Audio responses in both languages via Hugging Face
+- **Text-to-Speech**: Audio responses in both languages via Google TTS (gTTS)
 - **Interactive UI**: Clean Streamlit interface
 
 ## 🏗️ Architecture
@@ -20,7 +20,7 @@ User → Streamlit UI → Langchain → Pinecone (Vector Search)
                          ↓
                     Function Calling → External Links
                          ↓
-                    Hugging Face TTS → Audio Output
+                    Google TTS (gTTS) → Audio Output
 ```
 
 ## 📋 Prerequisites
@@ -28,7 +28,6 @@ User → Streamlit UI → Langchain → Pinecone (Vector Search)
 - Python 3.9+
 - Azure OpenAI account with API access
 - Pinecone account and API key
-- Hugging Face account and API token
 
 ## 🚀 Setup Instructions
 
@@ -64,9 +63,7 @@ Required variables:
 - `AZURE_OPENAI_DEPLOYMENT_NAME`: Your GPT model deployment name (e.g., gpt-4o-mini)
 - `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`: Your embedding model deployment (e.g., text-embedding-3-small)
 - `PINECONE_API_KEY`: Your Pinecone API key
-- `PINECONE_ENVIRONMENT`: Your Pinecone environment
 - `PINECONE_INDEX_NAME`: Name for your Pinecone index
-- `HUGGINGFACE_API_KEY`: Your Hugging Face API token (optional)
 
 Optional variables (if using separate keys for different models):
 - `AZURE_OPENAI_EMBEDDING_API_KEY`: Separate API key for embedding model (if different from LLM key)
@@ -178,7 +175,7 @@ Test cases cover:
 - **Vector Store**: Pinecone (semantic search)
 - **LLM**: Azure OpenAI (GPT-4 or GPT-3.5-Turbo)
 - **UI**: Streamlit
-- **TTS**: Hugging Face Inference API
+- **TTS**: Google Text-to-Speech (gTTS) - No API key required
 - **Language**: Python 3.9+
 
 ## 📝 Workshop Requirements
@@ -188,7 +185,7 @@ This project fulfills Workshop 4 requirements:
 - ✅ Langchain orchestration
 - ✅ Function Calling integration
 - ✅ Streamlit UI
-- ✅ Hugging Face TTS
+- ✅ Google TTS (gTTS)
 - ✅ Synthetic dataset creation
 - ✅ Multilingual support
 
@@ -215,9 +212,9 @@ Educational project for Workshop 4.
 - Ensure API version is compatible
 
 ### TTS Not Working
-- Verify Hugging Face API token
-- Check internet connection
-- Try alternative TTS models if needed
+- Check internet connection (gTTS requires internet)
+- Verify gTTS is installed: `pip install gtts`
+- First TTS call may take a few seconds
 
 ## 📞 Support
 

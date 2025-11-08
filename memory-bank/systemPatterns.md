@@ -33,8 +33,8 @@
             ┌───────────────┼───────────────┐
             ▼               ▼               ▼
     ┌──────────────┐  ┌──────────┐  ┌─────────────┐
-    │   Pinecone   │  │  Azure   │  │  Hugging    │
-    │ Vector Store │  │  OpenAI  │  │  Face TTS   │
+    │   Pinecone   │  │  Azure   │  │  Google     │
+    │ Vector Store │  │  OpenAI  │  │  TTS (gTTS) │
     └──────────────┘  └──────────┘  └─────────────┘
 ```
 
@@ -136,9 +136,10 @@ User Query (Vi/En)
 - Returns structured data
 
 **5. TTS Manager**
-- Hugging Face API client
-- Text-to-speech conversion
+- gTTS (Google Text-to-Speech) client
+- Text-to-speech conversion for Vietnamese and English
 - Audio playback handling
+- No API key required
 
 **6. UI Controller**
 - Streamlit layout
@@ -176,7 +177,23 @@ User Query (Vi/En)
 ## Error Handling Patterns
 - Pinecone connection failures → graceful fallback
 - LLM API errors → retry logic
-- TTS failures → disable button, show text only
+- TTS failures → disable button, show text only (gTTS is stable, rarely fails)
 - Function call errors → return default message
 - Empty retrieval → use LLM general knowledge (with warning)
+
+## TTS Implementation History
+
+### Initial Implementation (Hugging Face)
+- Attempted to use Hugging Face Inference API
+- Encountered 401 errors (token permissions)
+- After fixing token, encountered 404 errors (endpoints deprecated/not available)
+- All tested endpoints returned 404 or 410 (deprecated)
+
+### Current Implementation (gTTS)
+- Switched to Google Text-to-Speech (gTTS)
+- No API key required
+- Stable and reliable
+- Supports Vietnamese (vi) and English (en)
+- Simple integration with io.BytesIO for audio buffer
+- Backup of Hugging Face implementation saved in `src/tts_huggingface_backup.py`
 

@@ -273,7 +273,7 @@ This document outlines test cases to validate all functional requirements (FR1-F
 **Objective**: Verify TTS button is displayed
 
 **Test Steps**:
-1. Ensure HUGGINGFACE_API_KEY is set in .env
+1. Ensure gTTS is installed (pip install gtts)
 2. Ask any question
 3. Wait for bot response
 4. Observe response area

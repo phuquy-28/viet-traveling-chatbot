@@ -8,7 +8,7 @@ Building an intelligent RAG (Retrieval-Augmented Generation) chatbot system for 
 2. **Multilingual Support**: Handle both Vietnamese and English queries with appropriate responses
 3. **Function Calling**: Implement dynamic link retrieval for locations, restaurants, and activities
 4. **Conversational AI**: Maintain chat history and suggest relevant follow-up questions
-5. **Text-to-Speech**: Integrate Hugging Face TTS for audio responses
+5. **Text-to-Speech**: Integrate Google TTS (gTTS) for audio responses
 
 ## Target Users
 - International tourists planning to visit Vietnam
@@ -35,7 +35,7 @@ Building an intelligent RAG (Retrieval-Augmented Generation) chatbot system for 
 - **Vector Store**: Pinecone (required by workshop)
 - **LLM**: Azure OpenAI
 - **UI**: Streamlit (required by workshop)
-- **TTS**: Hugging Face API
+- **TTS**: Google Text-to-Speech (gTTS)
 - **Language**: Python
 
 ## Out of Scope

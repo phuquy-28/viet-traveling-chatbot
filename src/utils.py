@@ -42,7 +42,6 @@ def validate_environment(verbose: bool = True) -> Dict[str, bool]:
     }
     
     optional_vars = {
-        "Hugging Face API Key": "HUGGINGFACE_API_KEY",
         "Pinecone Environment": "PINECONE_ENVIRONMENT",
         "Azure OpenAI Embedding API Key": "AZURE_OPENAI_EMBEDDING_API_KEY",
         "Azure OpenAI Embedding Endpoint": "AZURE_OPENAI_EMBEDDING_ENDPOINT",
