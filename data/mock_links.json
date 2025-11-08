@@ -1,0 +1,428 @@
+{
+  "ha_long_bay": {
+    "type": "destination",
+    "keywords": ["ha long", "halong", "vịnh hạ long", "caves", "cruise"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Ha+Long+Bay,+Quang+Ninh,+Vietnam",
+        "title": "Ha Long Bay Location"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=ha+long+bay+cruise",
+        "title": "Ha Long Bay Cruise Tours - Video Reviews"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g293924-d311103-Reviews-Halong_Bay-Halong_Bay.html",
+        "title": "Ha Long Bay Reviews & Tours"
+      }
+    ]
+  },
+  "hoi_an": {
+    "type": "destination",
+    "keywords": ["hoi an", "hội an", "ancient town", "lantern", "phố cổ"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Hoi+An+Ancient+Town,+Quang+Nam,+Vietnam",
+        "title": "Hoi An Ancient Town Location"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.lonelyplanet.com/vietnam/hoi-an",
+        "title": "Complete Guide to Hoi An - Lonely Planet"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=hoi+an+travel+guide",
+        "title": "Hoi An Travel Guide - Video"
+      }
+    ]
+  },
+  "da_nang": {
+    "type": "destination",
+    "keywords": ["da nang", "đà nẵng", "my khe", "mỹ khê", "golden bridge", "cầu vàng"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=My+Khe+Beach,+Da+Nang,+Vietnam",
+        "title": "My Khe Beach, Da Nang"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=da+nang+golden+bridge",
+        "title": "Golden Bridge Ba Na Hills - Aerial View"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.tourismvietnam.com/danang",
+        "title": "Da Nang Tourism Official Guide"
+      }
+    ]
+  },
+  "sapa": {
+    "type": "destination",
+    "keywords": ["sapa", "sa pa", "fansipan", "rice terrace", "ruộng bậc thang"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Sapa,+Lao+Cai,+Vietnam",
+        "title": "Sapa Town Location"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Tourism-g311304-Sapa_Lao_Cai_Province-Vacations.html",
+        "title": "Sapa Tours & Trekking Reviews"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=sapa+rice+terraces+vietnam",
+        "title": "Sapa Rice Terraces - Drone Footage"
+      }
+    ]
+  },
+  "phu_quoc": {
+    "type": "destination",
+    "keywords": ["phu quoc", "phú quốc", "island", "beach", "đảo ngọc"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Sao+Beach,+Phu+Quoc,+Vietnam",
+        "title": "Sao Beach, Phu Quoc Island"
+      },
+      {
+        "source": "Blog",
+        "url": "https://vietnam.travel/places-to-go/southern-vietnam/phu-quoc",
+        "title": "Phu Quoc Island Complete Guide"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=phu+quoc+island+beaches",
+        "title": "Phu Quoc Beaches Tour"
+      }
+    ]
+  },
+  "saigon_hcmc": {
+    "type": "destination",
+    "keywords": ["saigon", "sài gòn", "ho chi minh city", "hồ chí minh", "ben thanh", "bến thành"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Ben+Thanh+Market,+Ho+Chi+Minh+City",
+        "title": "Ben Thanh Market Location"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Tourism-g293925-Ho_Chi_Minh_City-Vacations.html",
+        "title": "Ho Chi Minh City Travel Guide"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=saigon+street+food+tour",
+        "title": "Saigon Street Food Walking Tour"
+      }
+    ]
+  },
+  "hanoi": {
+    "type": "destination",
+    "keywords": ["hanoi", "hà nội", "old quarter", "phố cổ", "hoan kiem", "hoàn kiếm"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Hanoi+Old+Quarter,+Vietnam",
+        "title": "Hanoi Old Quarter Location"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.lonelyplanet.com/vietnam/hanoi",
+        "title": "Hanoi Travel Guide - Lonely Planet"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=hanoi+old+quarter+walking+tour",
+        "title": "Hanoi Old Quarter Walking Tour"
+      }
+    ]
+  },
+  "nha_trang": {
+    "type": "destination",
+    "keywords": ["nha trang", "beach", "diving", "vinpearl"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Nha+Trang+Beach,+Khanh+Hoa,+Vietnam",
+        "title": "Nha Trang Beach Location"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Tourism-g293928-Nha_Trang_Khanh_Hoa_Province-Vacations.html",
+        "title": "Nha Trang Beach Activities & Tours"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=nha+trang+scuba+diving",
+        "title": "Nha Trang Scuba Diving & Snorkeling"
+      }
+    ]
+  },
+  "pho": {
+    "type": "food",
+    "keywords": ["pho", "phở", "noodle soup", "beef", "bò"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Pho+Thin,+Hanoi",
+        "title": "Phở Thìn - Famous Hanoi Pho"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.seriouseats.com/what-is-pho-vietnamese-noodle-soup",
+        "title": "The Ultimate Guide to Vietnamese Pho"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=how+to+eat+pho+vietnam",
+        "title": "How to Eat Pho Like a Local"
+      }
+    ]
+  },
+  "bun_cha": {
+    "type": "food",
+    "keywords": ["bun cha", "bún chả", "grilled pork", "hanoi", "obama"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bun+Cha+Huong+Lien,+Hanoi",
+        "title": "Bún Chả Hương Liên (Obama's Restaurant)"
+      },
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bun+Cha+Dac+Kim,+Hanoi",
+        "title": "Bún Chả Đắc Kim - Top Rated"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.cnn.com/travel/article/bun-cha-hanoi-obama-bourdain/index.html",
+        "title": "Obama's Bun Cha Experience in Hanoi - CNN"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=bun+cha+hanoi+street+food",
+        "title": "Bun Cha Hanoi Street Food Tour"
+      }
+    ]
+  },
+  "banh_mi": {
+    "type": "food",
+    "keywords": ["banh mi", "bánh mì", "sandwich", "baguette"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Banh+Mi+Huynh+Hoa,+Ho+Chi+Minh+City",
+        "title": "Bánh Mì Huỳnh Hoa - Saigon Famous"
+      },
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Banh+Mi+Phuong,+Hoi+An",
+        "title": "Bánh Mì Phượng - Hoi An"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.cnn.com/travel/article/best-banh-mi-vietnam/index.html",
+        "title": "Best Banh Mi in Vietnam - CNN Travel"
+      }
+    ]
+  },
+  "bun_bo_hue": {
+    "type": "food",
+    "keywords": ["bun bo hue", "bún bò huế", "spicy noodle", "hue"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bun+Bo+Hue+restaurants+Saigon",
+        "title": "Bún Bò Huế Restaurants in Saigon"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.vickypham.com/blog/bun-bo-hue-recipe",
+        "title": "Authentic Bun Bo Hue Recipe & Guide"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=bun+bo+hue+street+food",
+        "title": "Bun Bo Hue Vietnamese Spicy Noodle Soup"
+      }
+    ]
+  },
+  "egg_coffee": {
+    "type": "food",
+    "keywords": ["egg coffee", "cà phê trứng", "ca phe trung", "hanoi coffee"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Cafe+Giang,+39+Nguyen+Huu+Huan,+Hanoi",
+        "title": "Cafe Giảng - Original Egg Coffee"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.atlasobscura.com/foods/egg-coffee-vietnam",
+        "title": "The Story Behind Vietnam's Egg Coffee"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=hanoi+egg+coffee+cafe+giang",
+        "title": "Making Hanoi Egg Coffee at Cafe Giang"
+      }
+    ]
+  },
+  "goi_cuon": {
+    "type": "food",
+    "keywords": ["goi cuon", "gỏi cuốn", "spring roll", "fresh roll", "nem cuốn"],
+    "relevant_links": [
+      {
+        "source": "Blog",
+        "url": "https://www.recipetineats.com/vietnamese-fresh-spring-rolls/",
+        "title": "Vietnamese Fresh Spring Rolls Recipe"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=how+to+make+vietnamese+spring+rolls",
+        "title": "How to Make Vietnamese Fresh Spring Rolls"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g293925-d3881724-Reviews-Nha_Hang_Ngon-Ho_Chi_Minh_City.html",
+        "title": "Best Restaurants for Goi Cuon in Vietnam"
+      }
+    ]
+  },
+  "cao_lau": {
+    "type": "food",
+    "keywords": ["cao lau", "cao lầu", "hoi an noodle"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Cao+Lau+restaurants+Hoi+An",
+        "title": "Cao Lau Restaurants in Hoi An"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.travelfish.org/sight_profile/vietnam/central_coast/quang_nam/hoi_an/all/cao_lau/4087",
+        "title": "Cao Lau: Hoi An's Signature Dish"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=cao+lau+hoi+an",
+        "title": "Cao Lau - Hoi An's Special Noodle Dish"
+      }
+    ]
+  },
+  "com_tam": {
+    "type": "food",
+    "keywords": ["com tam", "cơm tấm", "broken rice", "saigon"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Com+Tam+Phu+Lam,+Ho+Chi+Minh+City",
+        "title": "Cơm Tấm Phú Lâm - Saigon"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.hungryhuy.com/com-tam-broken-rice-saigon/",
+        "title": "Guide to Saigon Broken Rice (Com Tam)"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=com+tam+saigon+street+food",
+        "title": "Com Tam Saigon Street Food"
+      }
+    ]
+  },
+  "water_puppet": {
+    "type": "culture",
+    "keywords": ["water puppet", "múa rối nước", "thang long theatre"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Theatre,+Hanoi",
+        "title": "Thăng Long Water Puppet Theatre"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g293924-d447076-Reviews-Thang_Long_Water_Puppet_Theater-Hanoi.html",
+        "title": "Water Puppet Show Reviews & Tickets"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=hanoi+water+puppet+show",
+        "title": "Hanoi Water Puppet Performance"
+      }
+    ]
+  },
+  "ao_dai": {
+    "type": "culture",
+    "keywords": ["ao dai", "áo dài", "traditional dress", "costume"],
+    "relevant_links": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Ao+Dai+Tailor+Hoi+An",
+        "title": "Ao Dai Tailors in Hoi An"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.culturetrip.com/asia/vietnam/articles/a-brief-history-of-vietnams-ao-dai/",
+        "title": "History of Vietnam's Ao Dai"
+      },
+      {
+        "source": "YouTube",
+        "url": "https://www.youtube.com/results?search_query=vietnamese+ao+dai+fashion",
+        "title": "Vietnamese Ao Dai Fashion Show"
+      }
+    ]
+  },
+  "visa_vietnam": {
+    "type": "travel_info",
+    "keywords": ["visa", "e-visa", "immigration", "entry"],
+    "relevant_links": [
+      {
+        "source": "Official",
+        "url": "https://evisa.xuatnhapcanh.gov.vn/",
+        "title": "Vietnam E-visa Official Website"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.vietnam-visa.com/",
+        "title": "Complete Vietnam Visa Guide"
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/ShowTopic-g293921-i8432-k13234567-Vietnam_Visa_Requirements_2024-Vietnam.html",
+        "title": "Vietnam Visa Requirements 2024"
+      }
+    ]
+  },
+  "transportation": {
+    "type": "travel_info",
+    "keywords": ["transport", "grab", "taxi", "motorbike", "bus", "train"],
+    "relevant_links": [
+      {
+        "source": "App",
+        "url": "https://www.grab.com/vn/",
+        "title": "Grab App - Download for Vietnam"
+      },
+      {
+        "source": "Blog",
+        "url": "https://www.nomadicmatt.com/travel-blogs/getting-around-vietnam/",
+        "title": "Complete Guide to Transportation in Vietnam"
+      },
+      {
+        "source": "Official",
+        "url": "https://dsvn.vn/",
+        "title": "Vietnam Railways Official Website"
+      }
+    ]
+  }
+}
+
