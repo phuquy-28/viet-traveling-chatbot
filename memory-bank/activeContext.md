@@ -1,29 +1,60 @@
 # Active Context
 
 ## Current Status
-**Project Implementation Complete** ✅
+**Project Implementation Complete + Persistent Chat Storage** ✅
 
 All development tasks completed! The Vietnam Travel Advisory Chatbot is fully implemented with:
 - Complete RAG pipeline with Pinecone and Azure OpenAI
 - Function Calling for external links
 - Bilingual support (Vietnamese + English)
 - Text-to-Speech integration (gTTS - Google TTS)
-- Streamlit UI with all features
+- Modern ChatGPT-style UI with light/dark mode
+- Bilingual interface (EN/VI)
+- **NEW: Persistent chat history (file-based storage)**
+- Chat history and session management with auto-save
+- Audio stop controls
 - Comprehensive mock data
 - Full test case documentation
 
 ## Current Work Focus
-**Ready for User Testing**
+**Ready for User Testing - Version 2.0**
 
-The application is production-ready and awaiting:
+The application is production-ready with enhanced UI:
 1. User configuration of `.env` file with API keys
 2. Data ingestion run (`python ingest_data.py`)
 3. Application launch and testing
 4. Test case validation
+5. **NEW: UI customization (theme + language)**
 
 ## Recent Changes
 
-### TTS Implementation Fix (Latest Session)
+### Persistent Chat Storage (Current Session) ✅
+1. ✅ **File-Based Storage**: Chat sessions now saved to disk in JSON format
+2. ✅ **New Module**: Created `src/chat_storage.py` with ChatStorageManager class
+3. ✅ **Auto-Save**: Sessions automatically saved after each message
+4. ✅ **Persistence**: Chat history survives app restarts and browser refreshes
+5. ✅ **Storage Directory**: `chat_history/` folder with automatic .gitignore
+6. ✅ **Updated .gitignore**: Added `chat_history/` to prevent committing user data
+
+**Files Modified:**
+- `src/chat_storage.py` - NEW module for persistent storage
+- `app.py` - Integrated ChatStorageManager
+- `.gitignore` - Added chat_history/ exclusion
+- `README.md` - Updated features list
+- `memory-bank/activeContext.md` - This file
+- `memory-bank/progress.md` - Updated completion status
+
+### UI Overhaul - ChatGPT-Style Interface (Previous Session) ✅
+1. ✅ **Light & Dark Mode**: Full theme switching with CSS variables
+2. ✅ **Bilingual Interface**: Complete EN/VI UI language support
+3. ✅ **Redesigned Sidebar**: New chat, chat history, settings, user profile
+4. ✅ **Welcome Screen**: Example questions in main area with 2x2 card grid
+5. ✅ **Audio Controls**: Added stop button for TTS playback
+6. ✅ **Chat History**: Save and restore last 10 conversations
+7. ✅ **Session Management**: UUID-based chat sessions
+8. ✅ **Modern CSS**: Smooth transitions, hover effects, professional styling
+
+### TTS Implementation Fix (Previous Session)
 1. ✅ **Fixed TTS Issues**: Resolved 401 and 404 errors with Hugging Face API
 2. ✅ **Migrated to gTTS**: Switched from Hugging Face to Google Text-to-Speech
 3. ✅ **Benefits**: No API key required, more stable, simpler integration

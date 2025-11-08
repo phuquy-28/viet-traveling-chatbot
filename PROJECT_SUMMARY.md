@@ -11,12 +11,12 @@ A complete RAG (Retrieval-Augmented Generation) chatbot implementation for Vietn
 ## 📊 Implementation Statistics
 
 ### Code Metrics
-- **Total Files:** 24
-- **Python Modules:** 7 (src/)
+- **Total Files:** 25
+- **Python Modules:** 8 (src/)
 - **Scripts:** 2 (app.py, ingest_data.py)
 - **Data Files:** 7 (6 content + 1 JSON)
 - **Documentation:** 8 files
-- **Lines of Code:** ~2,000+
+- **Lines of Code:** ~2,200+
 - **Test Cases:** 30+ documented scenarios
 
 ### Time to Complete
@@ -102,6 +102,7 @@ viet-traveling-chatbot/
 │   ├── llm_chain.py             # LLM + RAG + Function Calling (250+ lines)
 │   ├── function_calls.py        # External links handler (150+ lines)
 │   ├── conversation.py          # History management (80+ lines)
+│   ├── chat_storage.py          # Persistent storage (200+ lines)
 │   ├── tts.py                   # Text-to-Speech (100+ lines)
 │   └── utils.py                 # Helper functions (150+ lines)
 │
@@ -152,6 +153,9 @@ viet-traveling-chatbot/
 
 ### 4. Conversation Management ✅
 - **History Storage:** Session state with ConversationManager
+- **Persistent Storage:** File-based JSON storage via ChatStorageManager
+- **Auto-Save:** Conversations saved after each message
+- **Survives Restarts:** Chat history persists across app restarts
 - **Context Window:** Last 5 messages included in prompts
 - **Follow-up Generation:** LLM-generated suggestions (2-3)
 - **Context Awareness:** Understands pronouns and references
@@ -326,6 +330,14 @@ Pass Criteria: ✅ Function called, links displayed
 3. **Observer Pattern:** Session state in Streamlit
 4. **Factory Pattern:** Component initialization in cache
 5. **Singleton Pattern:** Cached resources in Streamlit
+
+### Code Statistics (Latest)
+- Total Python files: 10 (8 modules + 1 backup + 1 script)
+- Data files: 7 (6 content + 1 JSON)
+- Documentation files: 8 (6 memory-bank + README + TEST_CASES)
+- Lines of code: ~2,200+
+- TTS implementation: gTTS (Google Text-to-Speech) - stable and tested
+- Storage: File-based persistent chat history (JSON)
 
 ### Code Quality
 - **Readability:** Clear naming, logical structure

@@ -234,8 +234,9 @@ pip install -r requirements.txt
 - Google Maps, blogs, videos, reviews
 - Triggered when relevant
 
-### 💬 Conversation History
-- Remembers conversation context
+### 💬 Persistent Conversation History
+- Remembers conversation context across sessions
+- Chat history saved to disk (survives app restarts)
 - Context-aware follow-ups
 - "Smart" understanding of pronouns ("there", "it", etc.)
 
@@ -283,6 +284,7 @@ viet-traveling-chatbot/
 │   ├── llm_chain.py         # Langchain + Azure OpenAI
 │   ├── function_calls.py    # Function calling logic
 │   ├── conversation.py      # Chat history management
+│   ├── chat_storage.py      # Persistent storage (file-based)
 │   ├── tts.py              # Text-to-Speech
 │   └── utils.py            # Helper functions
 │

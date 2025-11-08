@@ -8,8 +8,11 @@ An intelligent RAG (Retrieval-Augmented Generation) chatbot for Vietnamese trave
 - **RAG Architecture**: Retrieves accurate information from curated knowledge base
 - **Function Calling**: Dynamically fetches external links (maps, reviews, videos)
 - **Conversational AI**: Maintains context and suggests follow-up questions
-- **Text-to-Speech**: Audio responses in both languages via Google TTS (gTTS)
-- **Interactive UI**: Clean Streamlit interface
+- **Text-to-Speech**: Audio responses in both languages via Google TTS (gTTS) with play/stop controls
+- **Modern UI**: ChatGPT-inspired interface with light/dark mode
+- **Bilingual Interface**: English and Vietnamese UI language options
+- **Persistent Chat History**: Conversations saved to disk and survive app restarts
+- **Session Management**: Create new chats and switch between them seamlessly
 
 ## 🏗️ Architecture
 
@@ -124,12 +127,46 @@ viet-traveling-chatbot/
 │   ├── llm_chain.py       # Langchain setup
 │   ├── function_calls.py  # Function calling handlers
 │   ├── conversation.py    # Chat history management
+│   ├── chat_storage.py    # Persistent storage (file-based)
 │   ├── tts.py            # Text-to-Speech integration
 │   └── utils.py          # Helper functions
 ├── app.py                # Streamlit main application
 ├── ingest_data.py        # Data ingestion script
 └── requirements.txt      # Python dependencies
 ```
+
+## 🎨 UI Features
+
+### ChatGPT-Inspired Interface
+The application features a modern, ChatGPT-style interface with:
+
+#### Light & Dark Mode
+- Toggle between light and dark themes
+- Smooth transitions and proper contrast
+- Comfortable viewing in any lighting condition
+
+#### Bilingual Interface
+- **English**: Full UI in English
+- **Tiếng Việt**: Complete Vietnamese interface
+- Independent from chat response language
+
+#### Smart Sidebar
+- **➕ New Chat**: Start fresh conversations
+- **💬 Chat History**: Access last 10 conversations
+- **⚙️ Settings**: Theme and language preferences
+- **User Profile**: Display at bottom
+
+#### Welcome Screen
+- Prominent example questions in 2x2 grid
+- Categories: Destinations, Food, Culture, Travel Tips
+- Click any card to start conversation
+
+#### Audio Controls
+- **🔊 Play**: Generate and play TTS audio
+- **⏹️ Stop**: Stop audio playback anytime
+- Works for both Vietnamese and English
+
+For detailed information, see [UI_IMPROVEMENTS.md](UI_IMPROVEMENTS.md)
 
 ## 💬 Usage Examples
 

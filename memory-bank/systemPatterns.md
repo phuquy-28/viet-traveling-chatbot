@@ -141,7 +141,13 @@ User Query (Vi/En)
 - Audio playback handling
 - No API key required
 
-**6. UI Controller**
+**6. Chat Storage Manager**
+- File-based persistent storage
+- JSON serialization of chat sessions
+- Auto-save after each message
+- Load/restore previous conversations
+
+**7. UI Controller**
 - Streamlit layout
 - Event handlers
 - State management
