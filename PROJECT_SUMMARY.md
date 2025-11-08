@@ -456,10 +456,3 @@ The **Vietnam Travel Advisory Chatbot** is a complete, production-ready implemen
 **Ready for:** Testing, Demonstration, Workshop Submission
 
 **Time to First Run:** ~15 minutes (including setup)
-
----
-
-*Generated: November 2024*  
-*Workshop 4: AI Application Engineering*  
-*Vietnam Travel Advisory Chatbot*
-
