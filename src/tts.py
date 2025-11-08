@@ -22,7 +22,8 @@ class TTSManager:
             "english": "facebook/mms-tts-eng"
         }
         
-        self.api_base_url = "https://api-inference.huggingface.co/models/"
+        # Updated to new Hugging Face router endpoint
+        self.api_base_url = "https://router.huggingface.co/hf-inference/models/"
     
     def text_to_speech(self, text: str, language: str = "english") -> Optional[bytes]:
         """Convert text to speech
@@ -47,7 +48,7 @@ class TTSManager:
         
         headers = {
             "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
+            # "Content-Type": "application/json"
         }
         
         payload = {

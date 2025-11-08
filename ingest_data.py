@@ -10,6 +10,17 @@ import os
 import sys
 from pathlib import Path
 
+# Fix Windows console encoding for emoji support
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except AttributeError:
+        # Python < 3.7 fallback
+        import codecs
+        sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
+        sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
+
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent))
 
@@ -53,16 +64,19 @@ def main():
     # Initialize vector store manager
     print("\n3. Initializing Vector Store Manager...")
     try:
-        vs_manager = VectorStoreManager()
+        vs_manager = VectorStoreManager(verbose=True)  # Verbose for ingestion script
         print("✅ Vector Store Manager initialized")
     except Exception as e:
         print(f"❌ Failed to initialize Vector Store Manager: {e}")
         sys.exit(1)
     
-    # Create Pinecone index if not exists
-    print("\n4. Creating Pinecone index (if not exists)...")
+    # Create Pinecone index (with option to recreate)
+    print("\n4. Creating Pinecone index...")
+    print("   Note: If changing embedding models, use force_recreate=True")
     try:
-        vs_manager.create_index_if_not_exists(dimension=1536)
+        # Set force_recreate=True to delete and recreate index with new embedding model
+        force_recreate = os.getenv("FORCE_RECREATE_INDEX", "false").lower() == "true"
+        vs_manager.create_index_if_not_exists(dimension=1536, force_recreate=force_recreate)
         print("✅ Pinecone index ready")
     except Exception as e:
         print(f"❌ Failed to create Pinecone index: {e}")

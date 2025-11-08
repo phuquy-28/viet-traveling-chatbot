@@ -35,12 +35,15 @@ st.set_page_config(
 @st.cache_resource
 def initialize_components():
     """Initialize all components (cached)"""
+    print("\n[APP] Starting initialization...")
     load_env_file()
     
-    vs_manager = VectorStoreManager()
-    llm_manager = LLMChainManager(vs_manager)
+    # Initialize components (silent mode)
+    vs_manager = VectorStoreManager(verbose=False)
+    llm_manager = LLMChainManager(vs_manager, verbose=False)
     tts_manager = TTSManager()
     
+    print("[APP] ✅ All components initialized successfully\n")
     return vs_manager, llm_manager, tts_manager
 
 
@@ -103,7 +106,7 @@ def display_settings():
     
     # Display environment status
     with st.sidebar.expander("🔧 System Status"):
-        validation = validate_environment()
+        validation = validate_environment(verbose=False)  # Silent validation
         
         required_ok = all([
             validation.get("AZURE_OPENAI_API_KEY", False),

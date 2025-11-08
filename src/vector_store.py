@@ -12,8 +12,12 @@ from langchain.schema import Document
 class VectorStoreManager:
     """Manages Pinecone vector store operations"""
     
-    def __init__(self):
-        """Initialize Pinecone client and embeddings"""
+    def __init__(self, verbose: bool = False):
+        """Initialize Pinecone client and embeddings
+        
+        Args:
+            verbose: If True, print initialization details
+        """
         self.api_key = os.getenv("PINECONE_API_KEY")
         self.environment = os.getenv("PINECONE_ENVIRONMENT")
         self.index_name = os.getenv("PINECONE_INDEX_NAME", "vietnam-travel")
@@ -25,22 +29,60 @@ class VectorStoreManager:
         self.pc = Pinecone(api_key=self.api_key)
         
         # Initialize embeddings
+        # Use separate API key for embeddings if available, otherwise fallback to main API key
+        embedding_api_key = os.getenv("AZURE_OPENAI_EMBEDDING_API_KEY") or os.getenv("AZURE_OPENAI_API_KEY")
+        embedding_endpoint = os.getenv("AZURE_OPENAI_EMBEDDING_ENDPOINT") or os.getenv("AZURE_OPENAI_ENDPOINT")
+        embedding_deployment = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT")
+        
+        if not embedding_api_key:
+            raise ValueError("AZURE_OPENAI_EMBEDDING_API_KEY or AZURE_OPENAI_API_KEY not found in environment variables")
+        
+        if not embedding_deployment:
+            raise ValueError("AZURE_OPENAI_EMBEDDING_DEPLOYMENT not found in environment variables")
+        
+        if verbose:
+            print(f"[VectorStore] Using embedding deployment: {embedding_deployment}")
+        
+        # IMPORTANT: Set both azure_deployment AND model to ensure correct model is used
+        # azure_deployment = your deployment name in Azure Portal
+        # model = actual model name (e.g., text-embedding-3-small)
         self.embeddings = AzureOpenAIEmbeddings(
-            azure_deployment=os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT"),
+            azure_deployment=embedding_deployment,
+            model=embedding_deployment,  # Explicitly set model name to match deployment
             openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-            api_key=os.getenv("AZURE_OPENAI_API_KEY")
+            azure_endpoint=embedding_endpoint,
+            api_key=embedding_api_key
         )
         
         self.vectorstore = None
     
-    def create_index_if_not_exists(self, dimension: int = 1536):
+    def delete_index(self):
+        """Delete the Pinecone index if it exists"""
+        existing_indexes = [index.name for index in self.pc.list_indexes()]
+        
+        if self.index_name in existing_indexes:
+            print(f"Deleting existing index '{self.index_name}'...")
+            self.pc.delete_index(self.index_name)
+            print(f"Index '{self.index_name}' deleted successfully!")
+            # Wait for deletion to complete
+            import time
+            time.sleep(5)
+        else:
+            print(f"Index '{self.index_name}' does not exist, nothing to delete.")
+    
+    def create_index_if_not_exists(self, dimension: int = 1536, force_recreate: bool = False):
         """Create Pinecone index if it doesn't exist
         
         Args:
-            dimension: Vector dimension (1536 for text-embedding-ada-002)
+            dimension: Vector dimension (1536 for text-embedding-3-small)
+            force_recreate: If True, delete and recreate the index even if it exists
         """
         existing_indexes = [index.name for index in self.pc.list_indexes()]
+        
+        if force_recreate and self.index_name in existing_indexes:
+            print(f"Force recreate enabled. Deleting existing index '{self.index_name}'...")
+            self.delete_index()
+            existing_indexes = []
         
         if self.index_name not in existing_indexes:
             print(f"Creating index '{self.index_name}'...")
@@ -54,6 +96,9 @@ class VectorStoreManager:
                 )
             )
             print(f"Index '{self.index_name}' created successfully!")
+            # Wait for index to be ready
+            import time
+            time.sleep(10)
         else:
             print(f"Index '{self.index_name}' already exists.")
     

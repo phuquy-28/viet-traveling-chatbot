@@ -130,7 +130,7 @@ viet-traveling-chatbot/
 
 ### 1. RAG Pipeline ✅
 - **Vector Store:** Pinecone with 1536-dimensional embeddings
-- **Embeddings:** Azure OpenAI text-embedding-ada-002
+- **Embeddings:** Azure OpenAI text-embedding-3-small
 - **Retrieval:** Top-K semantic search (K=3)
 - **Chunking:** Recursive text splitter (1000 chars, 200 overlap)
 - **Augmentation:** Context injection into prompts

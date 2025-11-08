@@ -20,17 +20,25 @@ from src.function_calls import (
 class LLMChainManager:
     """Manages LLM chain with RAG and Function Calling"""
     
-    def __init__(self, vector_store_manager: VectorStoreManager):
+    def __init__(self, vector_store_manager: VectorStoreManager, verbose: bool = False):
         """Initialize LLM and chain components
         
         Args:
             vector_store_manager: VectorStoreManager instance
+            verbose: If True, print initialization details
         """
         self.vector_store_manager = vector_store_manager
         
+        deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
+        
+        if verbose:
+            print(f"[LLMChain] Initializing with deployment: {deployment_name}")
+        
         # Initialize Azure OpenAI LLM
+        # IMPORTANT: Set both azure_deployment AND model to match your Azure deployment
         self.llm = AzureChatOpenAI(
-            azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+            azure_deployment=deployment_name,
+            model=deployment_name,  # Explicitly set model to match deployment
             openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
             azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
             api_key=os.getenv("AZURE_OPENAI_API_KEY"),
@@ -130,8 +138,8 @@ Remember: Match the user's language (Vietnamese or English) in your response."""
         # Get retriever (could filter by language if needed)
         retriever = self.vector_store_manager.get_retriever(k=self.top_k)
         
-        # Retrieve relevant documents
-        retrieved_docs = retriever.get_relevant_documents(question)
+        # Retrieve relevant documents (use invoke instead of deprecated get_relevant_documents)
+        retrieved_docs = retriever.invoke(question)
         context = self.format_docs(retrieved_docs)
         
         # Format chat history

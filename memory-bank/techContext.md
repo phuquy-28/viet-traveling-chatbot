@@ -16,7 +16,7 @@
 langchain>=0.1.0
 langchain-openai>=0.0.5
 langchain-pinecone>=0.0.1
-pinecone-client>=3.0.0
+pinecone>=3.0.0
 streamlit>=1.30.0
 openai>=1.0.0
 python-dotenv>=1.0.0
@@ -32,7 +32,7 @@ requests>=2.31.0
 AZURE_OPENAI_API_KEY=your_key
 AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
 AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4  # or gpt-35-turbo
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-ada-002
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small
 AZURE_OPENAI_API_VERSION=2024-02-15-preview
 
 # Pinecone
@@ -86,7 +86,7 @@ viet-traveling-chatbot/
 ## Technical Constraints
 
 ### Pinecone Specifications
-- **Dimension**: 1536 (for text-embedding-ada-002)
+- **Dimension**: 1536 (for text-embedding-3-small)
 - **Metric**: Cosine similarity
 - **Namespace**: Optional (can separate vi/en if needed)
 - **Metadata**: Store language, category, source

@@ -55,7 +55,7 @@ pip install -r requirements.txt
    AZURE_OPENAI_API_KEY=your_actual_key_here
    AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
    AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
-   AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-ada-002
+   AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small
    AZURE_OPENAI_API_VERSION=2024-02-15-preview
 
    # Pinecone Configuration

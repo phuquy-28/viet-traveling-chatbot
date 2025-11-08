@@ -24,8 +24,11 @@ def load_env_file(env_path: str = ".env") -> bool:
         return False
 
 
-def validate_environment() -> Dict[str, bool]:
+def validate_environment(verbose: bool = True) -> Dict[str, bool]:
     """Validate required environment variables
+    
+    Args:
+        verbose: If True, print validation details to console
     
     Returns:
         Dictionary with validation results
@@ -41,27 +44,32 @@ def validate_environment() -> Dict[str, bool]:
     optional_vars = {
         "Hugging Face API Key": "HUGGINGFACE_API_KEY",
         "Pinecone Environment": "PINECONE_ENVIRONMENT",
+        "Azure OpenAI Embedding API Key": "AZURE_OPENAI_EMBEDDING_API_KEY",
+        "Azure OpenAI Embedding Endpoint": "AZURE_OPENAI_EMBEDDING_ENDPOINT",
     }
     
     results = {}
     
-    print("\n=== Environment Validation ===")
-    print("\nRequired Variables:")
+    # Validate required vars
     for name, var in required_vars.items():
         value = os.getenv(var)
         is_set = value is not None and len(value) > 0
         results[var] = is_set
-        status = "✅ Set" if is_set else "❌ Missing"
-        print(f"{name}: {status}")
+        if verbose:
+            status = "[OK] Set" if is_set else "[MISSING]"
+            print(f"{name}: {status}")
     
-    print("\nOptional Variables:")
+    # Validate optional vars (silent unless verbose)
     for name, var in optional_vars.items():
         value = os.getenv(var)
         is_set = value is not None and len(value) > 0
-        status = "✅ Set" if is_set else "⚠️  Not set"
-        print(f"{name}: {status}")
+        results[var] = is_set
     
-    print("\n" + "=" * 30 + "\n")
+    if verbose and any(results.get(var, False) for var in optional_vars.values()):
+        print("\nOptional Variables:")
+        for name, var in optional_vars.items():
+            if results.get(var, False):
+                print(f"{name}: [OK] Set")
     
     return results
 

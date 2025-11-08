@@ -59,14 +59,20 @@ copy .env.example .env  # Windows
 ```
 
 Required variables:
-- `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key
+- `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key (for LLM/chat model)
 - `AZURE_OPENAI_ENDPOINT`: Your Azure OpenAI endpoint URL
-- `AZURE_OPENAI_DEPLOYMENT_NAME`: Your GPT model deployment name
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`: Your embedding model deployment
+- `AZURE_OPENAI_DEPLOYMENT_NAME`: Your GPT model deployment name (e.g., gpt-4o-mini)
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`: Your embedding model deployment (e.g., text-embedding-3-small)
 - `PINECONE_API_KEY`: Your Pinecone API key
 - `PINECONE_ENVIRONMENT`: Your Pinecone environment
 - `PINECONE_INDEX_NAME`: Name for your Pinecone index
-- `HUGGINGFACE_API_KEY`: Your Hugging Face API token
+- `HUGGINGFACE_API_KEY`: Your Hugging Face API token (optional)
+
+Optional variables (if using separate keys for different models):
+- `AZURE_OPENAI_EMBEDDING_API_KEY`: Separate API key for embedding model (if different from LLM key)
+- `AZURE_OPENAI_EMBEDDING_ENDPOINT`: Separate endpoint for embedding model (if different from LLM endpoint)
+
+**Note**: If your Azure OpenAI API key has restricted access (e.g., only allows GPT-4o-mini but not text-embedding-3-small), you need to set `AZURE_OPENAI_EMBEDDING_API_KEY` with a key that has access to the embedding model.
 
 ### 3. Ingest Data into Pinecone
 
@@ -80,6 +86,23 @@ This will:
 - Load Vietnamese and English travel documents
 - Generate embeddings
 - Upload to Pinecone vector store
+
+**Important**: If you changed the embedding model (e.g., from `text-embedding-ada-002` to `text-embedding-3-small`), you need to recreate the index:
+
+```bash
+# Windows PowerShell
+$env:FORCE_RECREATE_INDEX="true"
+python ingest_data.py
+
+# Linux/Mac
+export FORCE_RECREATE_INDEX=true
+python ingest_data.py
+```
+
+Or add to your `.env` file:
+```env
+FORCE_RECREATE_INDEX=true
+```
 
 ### 4. Run the Application
 
